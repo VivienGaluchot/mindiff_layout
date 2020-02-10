@@ -9,6 +9,14 @@ html, body {
   font-weight: 300;
 }
 
+.new-date {
+  color: #6b6564;
+  border-right: 1px solid #6b6564;
+  padding-right: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+}
+
 .mainblock {
   text-align: left;
   background-color: #161515;
