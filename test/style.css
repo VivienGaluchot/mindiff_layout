@@ -1,0 +1,105 @@
+html, body {
+  background-color: #1c1a1a;
+  color: #b9b4b3;
+  margin: 0;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+.mainblock {
+  text-align: left;
+  background-color: #161515;
+  display: inline-block;
+  border: 2px solid #0b0505;
+  margin: 5rem;
+}
+
+content {
+  padding: 3rem;
+  display: inline-block;
+}
+
+.code {
+  font-family: monospace;
+}
+
+h2,
+h1 {
+  text-align: left;
+  color: rgb(150, 107, 107);
+  margin: 0;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+footer {
+  padding: 1rem 3rem;
+  background-color: #0b0505;
+}
+
+/* GRID */
+
+.grid-title {
+  background-color: rgb(150, 107, 107);
+  color: #0b0505;
+  margin-bottom: 0px;
+  padding: 0.2rem;
+}
+
+.grid {
+  padding: 0.5rem;
+  background-color: rgb(185, 146, 146);
+  overflow: auto;
+  --grid_columns: 4;
+}
+.grid-3 {
+  --grid_columns: 3;
+}
+.grid-5 {
+  --grid_columns: 5;
+}
+
+/* CELLS */
+
+.grid > .cell-1,
+.grid > .cell-2,
+.grid > .cell-3,
+.grid > .cell-4 {
+  border: 2px solid #0b0505;
+  color: #0b0505;
+  float: left;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  box-sizing: border-box;
+  font-weight: 400;
+  text-align: center;
+  background-color: rgb(150, 107, 107);
+}
+
+.grid > .cell-1:hover,
+.grid > .cell-2:hover,
+.grid > .cell-3:hover,
+.grid > .cell-4:hover {
+  background-color: rgb(175, 135, 135);
+}
+
+.grid > .cell-1 {
+  width: calc(100% / var(--grid_columns) - 1rem);
+}
+.grid > .cell-2 {
+  width: calc(2 * 100% / var(--grid_columns) - 1rem);
+}
+.grid > .cell-3 {
+  width: calc(3 * 100% / var(--grid_columns) - 1rem);
+}
+.grid > .cell-4 {
+  width: calc(4 * 100% / var(--grid_columns) - 1rem);
+}
