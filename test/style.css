@@ -106,15 +106,15 @@ footer {
 .grid > .cell {
   position: relative;
   box-sizing: border-box;
-  padding: 1rem;
   margin: 0.5rem;
   font-weight: 400;
   background-color: rgb(150, 107, 107);
-  border: 2px solid #0b0505;
+  border: 2px solid #0b0505b3;
   color: #0b0505;
+  transition: width 2s;
 }
 .grid > .cell:hover {
-  border: 2px solid #0b050579;
+  border: 2px solid #0b0505;
 }
 
 .grid > .cell.width-1 {
@@ -139,20 +139,18 @@ footer {
 /* UI */
 
 .button-block {
-  border: 1px solid #0b0505;
-  display: inline-block;
-  width: min-content;
+  display: block;
 }
 
 .button-block button {
   border-radius: 0;
   box-sizing: border-box;
-  border: 1px solid #0b0505;
+  border: 0;
   background-color: #0b0505b3;
   color: rgb(150, 107, 107);
   text-align: center;
   text-decoration: none;
-  display: inline-block;
+  display: block;
   font-size: 1rem;
   line-height: 1rem;
   padding: 0 0.2rem;
@@ -160,5 +158,5 @@ footer {
 }
 
 .button-block button:hover {
-  background-color: #0b050571;
+  background-color: #0b0505;
 }
