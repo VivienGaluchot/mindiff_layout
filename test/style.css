@@ -140,11 +140,12 @@ footer {
 
 .button-block {
   border: 1px solid #0b0505;
-  display: flex;
+  display: inline-block;
   width: min-content;
 }
 
 .button-block button {
+  border-radius: 0;
   box-sizing: border-box;
   border: 1px solid #0b0505;
   background-color: #0b0505b3;
