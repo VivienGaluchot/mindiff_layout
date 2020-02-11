@@ -17,34 +17,67 @@
             <h2>News</h2>
             <p><span class="new-date">10/02/2020</span> code in progress</p>
 
-            <h2>Demo</h2>
-            <p class="grid-title"><b>4</b> elements of size <b>1</b> in a <b>3</b> wide grid</p class="grid-title">
-            <div class="grid grid-3">
-                <div class="cell-1">A</div>
-                <div class="cell-1">B</div>
-                <div class="cell-1">C</div>
-                <div class="cell-1">D</div>
+            <h2>World rules</h2>
+            <p>A grid contains cells.</p>
+            <p>Grid have a number of columns <b>N</b>, and an infinite number of rows.</p>
+            <p>Each cell can lay on one ore more columns, maximum <b>N</b>.</p>
+            <p>Cell are placed in order, starting from top left of the grid.
+            When there is not enought space left in the row to add the cell, the cells is placed on the next line (wrapping).</p>
+            <p>Use <b>+</b> and <b>-</b> buttons to try the defined world layout.</p>
+
+            <div class="grid-title">
+                <p><b>3</b> wide grid</p>
+                <div class="button-block">
+                    <button class="cell width-1" onclick="addButton(this.parentNode.parentNode.nextElementSibling);">+</button>
+                    <button class="cell width-1" onclick="remButton(this.parentNode.parentNode.nextElementSibling);">-</button>
+                </div>
+            </div>
+            <div class="grid width-3">
+                <div class="cell width-1">
+                    <div class="button-block">
+                        <button class="cell width-1" onclick="expendButton(this.parentNode.parentNode);">+</button>
+                        <button class="cell width-1" onclick="reduceButton(this.parentNode.parentNode);">-</button>
+                    </div>
+                </div>
             </div>
 
-            <p class="grid-title"><b>4</b> elements of size <b>1</b> in a <b>4</b> wide grid</p>
-            <div class="grid grid-4">
-                <div class="cell-1">A</div>
-                <div class="cell-1">B</div>
-                <div class="cell-1">C</div>
-                <div class="cell-1">D</div>
+            <div class="grid-title">
+                <p><b>4</b> wide grid</p>
+                <div class="button-block">
+                    <button class="cell width-1" onclick="addButton(this.parentNode.parentNode.nextElementSibling);">+</button>
+                    <button class="cell width-1" onclick="remButton(this.parentNode.parentNode.nextElementSibling);">-</button>
+                </div>
+            </div>
+            <div class="grid width-4">
+                <div class="cell width-1">
+                    <div class="button-block">
+                        <button class="cell width-1" onclick="expendButton(this.parentNode.parentNode);">+</button>
+                        <button class="cell width-1" onclick="reduceButton(this.parentNode.parentNode);">-</button>
+                    </div>
+                </div>
             </div>
 
-            <p class="grid-title"><b>4</b> elements of size <b>1</b> in a <b>5</b> wide grid</p>
-            <div class="grid grid-5">
-                <div class="cell-1">A</div>
-                <div class="cell-1">B</div>
-                <div class="cell-1">C</div>
-                <div class="cell-1">D</div>
+            <div class="grid-title">
+                <p><b>5</b> wide grid</p>
+                <div class="button-block">
+                    <button class="cell width-1" onclick="addButton(this.parentNode.parentNode.nextElementSibling);">+</button>
+                    <button class="cell width-1" onclick="remButton(this.parentNode.parentNode.nextElementSibling);">-</button>
+                </div>
+            </div>
+            <div class="grid width-5">
+                <div class="cell width-1">
+                    <div class="button-block">
+                        <button class="cell width-1" onclick="expendButton(this.parentNode.parentNode);">+</button>
+                        <button class="cell width-1" onclick="reduceButton(this.parentNode.parentNode);">-</button>
+                    </div>
+                </div>
             </div>
         </content>
         <footer>
             <p class="code">Code available <a href="https://github.com/VivienGaluchot/mindiff_layout">here</a></p>
         </footer>
     </div>
+
+    <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
