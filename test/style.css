@@ -52,6 +52,11 @@ p {
   font-size: 0.9rem;
 }
 
+.placeholder {
+  height: 4rem;
+  width: 4rem;
+}
+
 footer {
   padding: 1rem 3rem;
   background-color: #0b0505;
@@ -76,6 +81,8 @@ footer {
 }
 
 .grid {
+  width: 40rem;
+  margin-bottom: 1rem;
   padding: 0.5rem;
   background-color: rgb(185, 146, 146);
   overflow: auto;
@@ -117,6 +124,9 @@ footer {
   border: 2px solid #0b0505b3;
   color: #0b0505;
   transition: width 2s;
+}
+.grid.mindiff_layout > .cell {
+  transition: width 0.5s;
 }
 .grid > .cell:hover {
   border: 2px solid #0b0505;
