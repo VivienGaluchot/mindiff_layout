@@ -81,6 +81,11 @@ footer {
   overflow: auto;
   display: flex;
   flex-flow: row wrap;
+  background-position: 0.5rem 0;
+  background-size: calc((2 * 100% - 2rem) / var(--grid_columns)) 100%;
+  background-image:
+    linear-gradient(to right,  rgb(172, 131, 131) 50%, transparent 50%),
+    linear-gradient(to bottom, transparent 50%, transparent 50%);
 }
 .grid.width-1 {
   --grid_columns: 1;
@@ -151,9 +156,9 @@ footer {
   text-align: center;
   text-decoration: none;
   display: block;
-  font-size: 1rem;
+  font-size: 1.2rem;
   line-height: 1rem;
-  padding: 0 0.2rem;
+  padding: 0.2rem 0.3em;
   font-family: monospace;
 }
 
