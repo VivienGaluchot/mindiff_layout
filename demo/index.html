@@ -12,10 +12,15 @@
     <div class="mainblock">
         <content>
             <h1 class="code">mindiff_layout.js</h1>
-            <p>Layout of expendable elements on an interger grid with minimal differences.</p>
+            <p>Layout of expendable elements with interger size keeping minimal size difference.</p>
+            <p>JavaScript implementation.</p>
+
+            <div class="grid width-6 mindiff_layout time_animate">
+            </div>
             
             <h2>News</h2>
             <p><span class="new-date">12/02/2020</span> code in progress</p>
+            <p><span class="new-date">17/02/2020</span> first release</p>
 
             <h2>World rules</h2>
             <p>A grid contains cells.</p>
@@ -25,87 +30,88 @@
             When there is not enought space left in the row to add the cell, the cells is placed on the next line (wrapping).</p>
             <p>Use <b>+</b> and <b>-</b> buttons to try the defined world layout.</p>
 
-            <div class="grid-title">
+            <div class="grid-title demo">
                 <p><b>3</b> wide grid</p>
                 <div class="button-block">
-                    <button class="cell width-1" onclick="manual.add(this.parentNode.parentNode.nextElementSibling);">+</button>
-                    <button class="cell width-1" onclick="manual.rem(this.parentNode.parentNode.nextElementSibling);">-</button>
+                    <button class="cell width-1" onclick="manual.add(this);">+</button>
+                    <button class="cell width-1" onclick="manual.rem(this);">-</button>
                 </div>
             </div>
-            <div class="grid width-3">
+            <div class="grid width-3 demo">
                 <div class="cell width-1">
                     <div class="button-block">
-                        <button class="cell width-1" onclick="manual.expend(this.parentNode.parentNode);">+</button>
-                        <button class="cell width-1" onclick="manual.reduce(this.parentNode.parentNode);">-</button>
+                        <button class="cell width-1" onclick="manual.expend(this);">+</button>
+                        <button class="cell width-1" onclick="manual.reduce(this);">-</button>
                     </div>
                 </div>
             </div>
 
-            <div class="grid-title">
+            <div class="grid-title demo">
                 <p><b>4</b> wide grid</p>
                 <div class="button-block">
-                    <button class="cell width-1" onclick="manual.add(this.parentNode.parentNode.nextElementSibling);">+</button>
-                    <button class="cell width-1" onclick="manual.rem(this.parentNode.parentNode.nextElementSibling);">-</button>
+                    <button class="cell width-1" onclick="manual.add(this);">+</button>
+                    <button class="cell width-1" onclick="manual.rem(this);">-</button>
                 </div>
             </div>
-            <div class="grid width-4">
+            <div class="grid width-4 demo">
                 <div class="cell width-1">
                     <div class="button-block">
-                        <button onclick="manual.expend(this.parentNode.parentNode);">+</button>
-                        <button onclick="manual.reduce(this.parentNode.parentNode);">-</button>
+                        <button onclick="manual.expend(this);">+</button>
+                        <button onclick="manual.reduce(this);">-</button>
                     </div>
                 </div>
             </div>
 
-            <div class="grid-title">
+            <div class="grid-title demo">
                 <p><b>5</b> wide grid</p>
                 <div class="button-block">
-                    <button onclick="manual.add(this.parentNode.parentNode.nextElementSibling);">+</button>
-                    <button onclick="manual.rem(this.parentNode.parentNode.nextElementSibling);">-</button>
+                    <button onclick="manual.add(this);">+</button>
+                    <button onclick="manual.rem(this);">-</button>
                 </div>
             </div>
-            <div class="grid width-5">
+            <div class="grid width-5 demo">
                 <div class="cell width-1">
                     <div class="button-block">
-                        <button onclick="manual.expend(this.parentNode.parentNode);">+</button>
-                        <button onclick="manual.reduce(this.parentNode.parentNode);">-</button>
+                        <button onclick="manual.expend(this);">+</button>
+                        <button onclick="manual.reduce(this);">-</button>
                     </div>
                 </div>
             </div>
             
             <h2>Automation</h2>
             <p>Same world rule, with cell with automation to optimize space occupation.</p>
+            <p>The automated values is the width of each cells, with the <code>mindiff_layout.js</code> implementation.</p>
             
-            <div class="grid-title">
+            <div class="grid-title demo">
                 <p><b>3</b> wide grid</p>
                 <div class="button-block">
-                    <button onclick="auto.add(this.parentNode.parentNode.nextElementSibling);">+</button>
-                    <button onclick="auto.rem(this.parentNode.parentNode.nextElementSibling);">-</button>
+                    <button onclick="auto.add(this);">+</button>
+                    <button onclick="auto.rem(this);">-</button>
                 </div>
             </div>
-            <div class="grid width-3 mindiff_layout">
-                <div class="cell width-1"><div class="placeholder"></div></div>
-            </div>
-            
-            <div class="grid-title">
-                <p><b>4</b> wide grid</p>
-                <div class="button-block">
-                    <button onclick="auto.add(this.parentNode.parentNode.nextElementSibling);">+</button>
-                    <button onclick="auto.rem(this.parentNode.parentNode.nextElementSibling);">-</button>
-                </div>
-            </div>
-            <div class="grid width-4 mindiff_layout">
+            <div class="grid width-3 mindiff_layout demo">
                 <div class="cell width-1"><div class="placeholder"></div></div>
             </div>
 
-            <div class="grid-title">
+            <div class="grid-title demo">
                 <p><b>5</b> wide grid</p>
                 <div class="button-block">
-                    <button onclick="auto.add(this.parentNode.parentNode.nextElementSibling);">+</button>
-                    <button onclick="auto.rem(this.parentNode.parentNode.nextElementSibling);">-</button>
+                    <button onclick="auto.add(this);">+</button>
+                    <button onclick="auto.rem(this);">-</button>
                 </div>
             </div>
-            <div class="grid width-5 mindiff_layout">
+            <div class="grid width-5 mindiff_layout demo">
+                <div class="cell width-1"><div class="placeholder"></div></div>
+            </div>
+
+            <div class="grid-title demo">
+                <p><b>7</b> wide grid</p>
+                <div class="button-block">
+                    <button onclick="auto.add(this);">+</button>
+                    <button onclick="auto.rem(this);">-</button>
+                </div>
+            </div>
+            <div class="grid width-7 mindiff_layout demo">
                 <div class="cell width-1"><div class="placeholder"></div></div>
             </div>
 
@@ -115,6 +121,7 @@
         </footer>
     </div>
 
+    <script type="text/javascript" src="../src/mindiff_layout.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

@@ -28,6 +28,8 @@ const common = function () {
 const manual = function () {
     return {
         add: function (element) {
+            var grid = element.parentNode.parentNode.nextElementSibling;
+
             var div = document.createElement("div");
             div.classList.add("cell");
             div.classList.add("width-1");
@@ -36,92 +38,84 @@ const manual = function () {
                 "<button onclick=\"manual.expend(this.parentNode.parentNode);\">+</button>" +
                 "<button onclick=\"manual.reduce(this.parentNode.parentNode);\">-</button>" +
                 "</div>";
-            element.appendChild(div);
+                grid.appendChild(div);
         },
         rem: function (element) {
-            if (element.lastElementChild)
-                element.removeChild(element.lastElementChild);
+            var grid = element.parentNode.parentNode.nextElementSibling;
+            if (grid.lastElementChild)
+                grid.removeChild(grid.lastElementChild);
         },
         expend: function (element) {
-            common.operateWidth(element, x => x + 1);
+            var cell = element.parentNode.parentNode;
+            common.operateWidth(cell, x => x + 1);
         },
         reduce: function (element) {
-            common.operateWidth(element, x => x - 1);
+            var cell = element.parentNode.parentNode;
+            common.operateWidth(cell, x => x - 1);
         }
     }
 }();
 
 const auto = function () {
-    function computeRowSplits(N, n) {
-        var C = Math.ceil(n / N);
-        var r = Math.ceil(n / C) - 1;
-        var a = (r + 1) * C - n;
-        var b = n - r * C;
-        return { a: a, b: b, r: r }
-    }
-
-    function computeColSplits(N, n) {
-        var r = Math.ceil(N / n) - 1;
-        var a = (r + 1) * n - N;
-        var b = N - r * n;
-        return { a: a, b: b, r: r }
-    }
-
-    function* rowGenerator(N, n) {
-        var sp = computeColSplits(N, n)
-        for (var i = 0; i < sp.b; i++) {
-            yield sp.r + 1;
-        }
-        for (let i = 0; i < sp.a; i++) {
-            yield sp.r;
-        }
-    }
-
-    function* rowsGenerator(N, n) {
-        var sp = computeRowSplits(N, n)
-        for (var i = 0; i < sp.a; i++) {
-            yield rowGenerator(N, sp.r);
-        }
-        for (var i = 0; i < sp.b; i++) {
-            yield rowGenerator(N, sp.r + 1);
-        }
-    }
-
     function applyMinDiff(element) {
         var N = getComputedStyle(element).getPropertyValue("--grid_columns");
         var n = element.children.length;
-        console.log(N, n);
         var index = 0;
-        for (var row_gen of rowsGenerator(N, n)) {
-            for (var cell_gen of row_gen) {
-                console.log(cell_gen);
-                common.operateWidth(element.children[index], x => cell_gen);
-                index++;
-            }
+        for (var cell of mindiff_layout.cellSizeGenerator(N, n)) {
+            common.operateWidth(element.children[index], x => cell);
+            index++;
         }
     }
 
+    function addToGrid(grid) {
+        var div = document.createElement("div");
+        div.classList.add("cell");
+        div.classList.add("width-1");
+        div.textContent = "width-1"
+        div.innerHTML = "<div class=\"button-block\" style=\"" + common.getCellRandomColorStyle() + "\"><div class=\"placeholder\"></div></div>";
+        grid.appendChild(div);
+        applyMinDiff(grid);
+    }
+
+    function removeFromGrid(grid) {
+        if (grid.lastElementChild)
+            grid.removeChild(grid.lastElementChild);
+        var N = getComputedStyle(grid).getPropertyValue("--grid_columns");
+        applyMinDiff(grid);
+    }
+
     document.addEventListener("DOMContentLoaded", function (event) {
-        for (var element of document.getElementsByClassName("mindiff_layout")) {
+        for (let element of document.getElementsByClassName("mindiff_layout")) {
             applyMinDiff(element);
+        }
+        for (let element of document.getElementsByClassName("time_animate")) {
+            for (var i = 0; i < 7; i++) {
+                addToGrid(element);
+            }
+            function addCallback(n, ascend) {
+                if (ascend) {
+                    n += 1;
+                    addToGrid(element);
+                    ascend = n != 12;
+                } else {
+                    n -= 1;
+                    removeFromGrid(element);
+                    ascend = n == 7;
+                }
+                setTimeout(addCallback, 1500, n, ascend);
+            }
+            setTimeout(addCallback, 1500, 7, true);
         }
     });
 
     return {
         add: function (element) {
-            var div = document.createElement("div");
-            div.classList.add("cell");
-            div.classList.add("width-1");
-            div.textContent = "width-1"
-            div.innerHTML = "<div class=\"button-block\" style=\"" + common.getCellRandomColorStyle() + "\"><div class=\"placeholder\"></div></div>";
-            element.appendChild(div);
-            applyMinDiff(element);
+            var grid = element.parentNode.parentNode.nextElementSibling;
+            addToGrid(grid);
         },
         rem: function (element) {
-            if (element.lastElementChild)
-                element.removeChild(element.lastElementChild);
-            var N = getComputedStyle(element).getPropertyValue("--grid_columns");
-            applyMinDiff(element);
+            var grid = element.parentNode.parentNode.nextElementSibling;
+            removeFromGrid(grid);
         }
     }
 }();

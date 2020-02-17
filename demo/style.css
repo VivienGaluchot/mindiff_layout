@@ -65,12 +65,14 @@ footer {
 /* grid */
 
 .grid-title {
-  background-color: rgb(150, 107, 107);
-  color: #0b0505;
   margin-top: 1rem;
   margin-bottom: 0;
   display: flex;
   flex-flow: row wrap;
+}
+.grid-title.demo {
+  color: #0b0505;
+  background-color: rgb(150, 107, 107);
 }
 .grid-title p {
   padding: 0.2rem;
@@ -84,10 +86,12 @@ footer {
   width: 40rem;
   margin-bottom: 1rem;
   padding: 0.5rem;
-  background-color: rgb(185, 146, 146);
   overflow: auto;
   display: flex;
   flex-flow: row wrap;
+}
+.grid.demo {
+  background-color: rgb(185, 146, 146);
   background-position: 0.5rem 0;
   background-size: calc((2 * 100% - 2rem) / var(--grid_columns)) 100%;
   background-image:
@@ -112,6 +116,18 @@ footer {
 .grid.width-6 {
   --grid_columns: 6;
 }
+.grid.width-7 {
+  --grid_columns: 7;
+}
+.grid.width-8 {
+  --grid_columns: 8;
+}
+.grid.width-9 {
+  --grid_columns: 9;
+}
+.grid.width-10 {
+  --grid_columns: 10;
+}
 
 /* cells */
 
@@ -124,31 +140,47 @@ footer {
   border: 2px solid #0b0505b3;
   color: #0b0505;
   transition: width 2s;
+  width: calc(var(--cell_width) * 100% / var(--grid_columns) - 1rem);
 }
 .grid.mindiff_layout > .cell {
   transition: width 0.5s;
+}
+.grid.mindiff_layout.time_animate > .cell {
+  transition: width 0s;
 }
 .grid > .cell:hover {
   border: 2px solid #0b0505;
 }
 
 .grid > .cell.width-1 {
-  width: calc(100% / var(--grid_columns) - 1rem);
+  --cell_width: 1;
 }
 .grid > .cell.width-2 {
-  width: calc(2 * 100% / var(--grid_columns) - 1rem);
+  --cell_width: 2;
 }
 .grid > .cell.width-3 {
-  width: calc(3 * 100% / var(--grid_columns) - 1rem);
+  --cell_width: 3;
 }
 .grid > .cell.width-4 {
-  width: calc(4 * 100% / var(--grid_columns) - 1rem);
+  --cell_width: 4;
 }
 .grid > .cell.width-5 {
-  width: calc(5 * 100% / var(--grid_columns) - 1rem);
+  --cell_width: 5;
 }
 .grid > .cell.width-6 {
-  width: calc(6 * 100% / var(--grid_columns) - 1rem);
+  --cell_width: 6;
+}
+.grid > .cell.width-7 {
+  --cell_width: 7;
+}
+.grid > .cell.width-8 {
+  --cell_width: 8;
+}
+.grid > .cell.width-9 {
+  --cell_width: 9;
+}
+.grid > .cell.width-10 {
+  --cell_width: 10;
 }
 
 /* UI */
