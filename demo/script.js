@@ -35,8 +35,8 @@ const manual = function () {
             div.classList.add("width-1");
             div.textContent = "width-1"
             div.innerHTML = "<div class=\"button-block\" style=\"" + common.getCellRandomColorStyle() + "\">" +
-                "<button onclick=\"manual.expend(this.parentNode.parentNode);\">+</button>" +
-                "<button onclick=\"manual.reduce(this.parentNode.parentNode);\">-</button>" +
+                "<button onclick=\"manual.expend(this);\">+</button>" +
+                "<button onclick=\"manual.reduce(this);\">-</button>" +
                 "</div>";
                 grid.appendChild(div);
         },
